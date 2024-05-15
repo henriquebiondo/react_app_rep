@@ -7,6 +7,7 @@ import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import PunchClockIcon from '@mui/icons-material/PunchClock';
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
@@ -136,7 +137,7 @@ const Sidebar = () => {
             <Item
               title="Controle de Ponto"
               to="/controle-ponto"
-              icon={<PeopleOutlinedIcon />}
+              icon={<PunchClockIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -162,6 +163,7 @@ const Sidebar = () => {
             >
               Cadastro
             </Typography>
+
             <Item
               title="Cadastro Funcionário"
               to="/cadastro-funcionario"
@@ -169,6 +171,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            
             {/* <Item
               title="Calendar"
               to="/calendar"
