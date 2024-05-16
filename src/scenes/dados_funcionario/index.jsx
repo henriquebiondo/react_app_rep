@@ -1,19 +1,30 @@
-import { Box } from "@mui/material";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataContacts } from "../../data/mockData";
+import {Box, useTheme} from "@mui/material";
+import {DataGrid, GridToolbar} from "@mui/x-data-grid";
+import {tokens} from "../../theme";
 import Header from "../../components/Header";
-import { useTheme } from "@mui/material";
+
+import {getFuncionarios} from '../../services/api';
+import {useEffect, useState} from "react";
 
 const DadosFuncionario = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [funcionarios, setFuncionarios] = useState([]);
+
+  useEffect(() => {
+    const fetchFuncionarios = async () => {
+      const data = await getFuncionarios('56023a7e-7c21-4548-9f80-8a02069f9901');
+      setFuncionarios(data);
+    };
+
+    fetchFuncionarios();
+  }, []);
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    {field: "idEmpregado", headerName: "ID", flex: 0.5},
+    {field: "registrarId", headerName: "Registrar ID"},
     {
-      field: "name",
+      field: "empNome",
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
@@ -53,50 +64,51 @@ const DadosFuncionario = () => {
   ];
 
   return (
-    <Box m="20px">
-      <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
-      />
-      <Box
-        m="40px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .name-column--cell": {
-            color: colors.greenAccent[300],
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
-          },
-          "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
-          },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`,
-          },
-        }}
-      >
-        <DataGrid
-          rows={mockDataContacts}
-          columns={columns}
-          components={{ Toolbar: GridToolbar }}
+      <Box m="20px">
+        <Header
+            title="CONTACTS"
+            subtitle="List of Contacts for Future Reference"
         />
+        <Box
+            m="40px 0 0 0"
+            height="75vh"
+            sx={{
+              "& .MuiDataGrid-root": {
+                border: "none",
+              },
+              "& .MuiDataGrid-cell": {
+                borderBottom: "none",
+              },
+              "& .name-column--cell": {
+                color: colors.greenAccent[300],
+              },
+              "& .MuiDataGrid-columnHeaders": {
+                backgroundColor: colors.blueAccent[700],
+                borderBottom: "none",
+              },
+              "& .MuiDataGrid-virtualScroller": {
+                backgroundColor: colors.primary[400],
+              },
+              "& .MuiDataGrid-footerContainer": {
+                borderTop: "none",
+                backgroundColor: colors.blueAccent[700],
+              },
+              "& .MuiCheckbox-root": {
+                color: `${colors.greenAccent[200]} !important`,
+              },
+              "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+                color: `${colors.grey[100]} !important`,
+              },
+            }}
+        >
+          <DataGrid
+              rows={funcionarios}
+              columns={columns}
+              components={{Toolbar: GridToolbar}}
+              getRowId={(row) => row.idEmpregado}
+          />
+        </Box>
       </Box>
-    </Box>
   );
 };
 

@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10ceb8dc-807b-41ba-a694-a1975feff24c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/cadastro_funcionario/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/cadastro_funcionario/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/global/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/global/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Empregado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Empregado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Telefone.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Telefone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/controle_ponto/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/controle_ponto/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/dados_funcionario/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/dados_funcionario/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JavaScript",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -94,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1715677852503</updated>
       <workItem from="1715677855191" duration="5174000" />
-      <workItem from="1715764921771" duration="1125000" />
+      <workItem from="1715764921771" duration="3403000" />
     </task>
     <servers />
   </component>

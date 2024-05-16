@@ -1,4 +1,3 @@
-
 class Telefone {
     constructor(telefone, codOperadora, whatsapp) {
         this.telefone = telefone;
