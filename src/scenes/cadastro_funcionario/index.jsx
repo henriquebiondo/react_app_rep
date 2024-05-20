@@ -418,7 +418,7 @@ const CadastroFuncionario = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <Button style={{ marginBottom: '20px' }} type="submit" color="secondary" variant="contained">
                 cadastrar funcionario
               </Button>
             </Box>

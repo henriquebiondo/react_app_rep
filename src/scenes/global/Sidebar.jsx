@@ -17,6 +17,10 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import DriveFileMoveIcon from '@mui/icons-material/DriveFileMove';
+import WarehouseIcon from '@mui/icons-material/Warehouse';
+
+import userImage from '../../assets/user.png';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -93,15 +97,16 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               {/* COMENTADO USER IMAGE */}
-              {/* <Box display="flex" justifyContent="center" alignItems="center">
+               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={userImage}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
-              </Box> */}
+              </Box>
+
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -109,10 +114,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  Henrique
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Gerente de TI
                 </Typography>
               </Box>
             </Box>
@@ -171,7 +176,31 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Arquivos
+            </Typography>
             
+            <Item
+              title="Gerar AFD"
+              to="/arquivo-afd"
+              icon={<DriveFileMoveIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Gerar AEJ"
+              to="/arquivo-aej"
+              icon={<DriveFileMoveIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
             {/* <Item
               title="Calendar"
               to="/calendar"
@@ -195,6 +224,7 @@ const Sidebar = () => {
             >
               Charts
             </Typography>
+
             <Item
               title="Bar Chart"
               to="/bar"
@@ -202,6 +232,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            
             <Item
               title="Pie Chart"
               to="/pie"

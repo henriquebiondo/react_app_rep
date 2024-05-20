@@ -1,7 +1,8 @@
-import {Box, useTheme} from "@mui/material";
+import {Box, useTheme, Button} from "@mui/material";
 import {DataGrid, GridToolbar} from "@mui/x-data-grid";
 import {tokens} from "../../theme";
 import Header from "../../components/Header";
+import { useNavigate } from 'react-router-dom';
 
 import {getFuncionarios} from '../../services/api';
 import {useEffect, useState} from "react";
@@ -10,6 +11,7 @@ const DadosFuncionario = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [funcionarios, setFuncionarios] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchFuncionarios = async () => {
@@ -21,53 +23,42 @@ const DadosFuncionario = () => {
   }, []);
 
   const columns = [
-    {field: "idEmpregado", headerName: "ID", flex: 0.5},
-    {field: "registrarId", headerName: "Registrar ID"},
+    { field: 'idEmpregado', headerName: 'ID do Empregado', width: 250 },
+    { field: 'numSeqRegistro', headerName: 'Número de Registro', width: 150 },
+    { field: 'empNome', headerName: 'Nome do Empregado', width: 400 },
+    { field: 'cpf', headerName: 'CPF', width: 150 },
+    { field: 'dataAdmissao', headerName: 'Data de Admissão', width: 150 },
+    { field: 'email', headerName: 'Email', width: 200 },
+    { field: 'departamento', headerName: 'Departamento', width: 200, hide: true },
+    { field: 'cargo', headerName: 'Cargo', width: 150 },
+    { field: 'banco', headerName: 'Banco', width: 150, hide: true },
+    { field: 'agencia', headerName: 'Agência', width: 150, hide: true },
+    { field: 'conta', headerName: 'Conta', width: 150, hide: true },
+    { field: 'telefone.telefone', headerName: 'Telefone', width: 150, hide: true },
+    { field: 'telefone.codOperadora', headerName: 'Código da Operadora', width: 200, hide: true },
+    { field: 'telefone.whatsapp', headerName: 'WhatsApp', width: 150, hide: true },
     {
-      field: "empNome",
-      headerName: "Name",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
-      flex: 1,
+      field: 'editar',
+      headerName: 'Editar',
+      sortable: false,
+      width: 100,
+      disableClickEventBubbling: true,
+      renderCell: (params) => {
+        const onClick = () => {
+          console.log(params.row);
+          navigate('/editar-funcionarios', { state: { funcionario: params.row } });
+        };
+  
+        return <Button variant="contained" color="secondary" onClick={onClick}>Editar</Button>;
+      }
     },
   ];
 
   return (
       <Box m="20px">
         <Header
-            title="CONTACTS"
-            subtitle="List of Contacts for Future Reference"
+            title="Funcionários"
+            subtitle="Lista os funcionários cadastrados no sistema"
         />
         <Box
             m="40px 0 0 0"
@@ -106,6 +97,13 @@ const DadosFuncionario = () => {
               columns={columns}
               components={{Toolbar: GridToolbar}}
               getRowId={(row) => row.idEmpregado}
+              localeText={{
+                toolbarDensity: 'Densidade',
+                toolbarFilters: 'Filtros',
+                toolbarColumns: 'Colunas',
+                toolbarExport: 'Exportar',
+                // Adicione mais traduções conforme necessário
+              }}
           />
         </Box>
       </Box>
