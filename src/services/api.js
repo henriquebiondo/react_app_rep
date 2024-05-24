@@ -13,3 +13,10 @@ export const getFuncionarios = async (id_empresa) => {
     const response = await api.get('/empregado/buscar/' + id_empresa);
     return response.data;
 };
+
+
+export const getEspelhoPonto = async (id_funcionario, mes_selecionado) => {
+    const response = 
+    await api.get(`/registroPonto?id_funcionario=${id_funcionario}&mes_selecionado=${mes_selecionado}`);
+    return response.data;
+}

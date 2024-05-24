@@ -11,6 +11,7 @@ import { ColorModeContext, useMode } from "./theme";
 import EditarFuncionario from "./scenes/editar_funcionario";
 import ArquivoAej from "./scenes/arquivo_aej";
 import ArquivoAfd from "./scenes/arquivo_afd";
+import EspelhoPonto from "./scenes/espelho_ponto";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -30,6 +31,7 @@ function App() {
               <Route path="/cadastro-funcionario" element={<CadastroFuncionario />} />
               <Route path="/dados-funcionarios" element={<DadosFuncionario />} />
               <Route path="/editar-funcionarios" element={<EditarFuncionario />} />
+              <Route path="/espelho-ponto" element={<EspelhoPonto />} />
               <Route path="/arquivo-aej" element={<ArquivoAej />} />
               <Route path="/arquivo-afd" element={<ArquivoAfd />} />
             </Routes>

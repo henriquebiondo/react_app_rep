@@ -15,9 +15,9 @@ const DadosFuncionario = () => {
 
   useEffect(() => {
     const fetchFuncionarios = async () => {
-      const data = await getFuncionarios('56023a7e-7c21-4548-9f80-8a02069f9901');
+      const data = await getFuncionarios('56023a7e-7c21-4548-9f80-8a02069f9901', 'Maio');
       setFuncionarios(data);
-    };
+    }; 
 
     fetchFuncionarios();
   }, []);
@@ -38,7 +38,6 @@ const DadosFuncionario = () => {
     { field: 'telefone.codOperadora', headerName: 'Código da Operadora', width: 200, hide: true },
     { field: 'telefone.whatsapp', headerName: 'WhatsApp', width: 150, hide: true },
     {
-      field: 'editar',
       headerName: 'Editar',
       sortable: false,
       width: 100,

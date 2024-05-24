@@ -1,5 +1,5 @@
 class Empregado {
-    constructor(empNome, cpf, dataAdmissao, email, departamento, cargo, banco, agencia, conta, codIdefCtps, codIdefCaepf, codIdefCno, codMatriculaEsocial, idEmpresaEndereco, codHorarioContratual, telefone, idEmpresa, idUsuarioInclusaoAlteracao) {
+    constructor(empNome, cpf, dataAdmissao, email, departamento, cargo, banco, agencia, conta, codIdefCtps, codIdefCaepf, codIdefCno, codMatriculaEsocial, idEmpresaEndereco, codHorarioContratual, telefone, idEmpresa, idUsuarioInclusaoAlteracao, statusJornada) {
         this.empNome = empNome;
         this.cpf = cpf;
         this.dataAdmissao = dataAdmissao;
@@ -18,6 +18,7 @@ class Empregado {
         this.telefone = telefone;
         this.idEmpresa = idEmpresa;
         this.idUsuarioInclusaoAlteracao = idUsuarioInclusaoAlteracao;
+        this.statusJornada = statusJornada;
     }
 }
 
