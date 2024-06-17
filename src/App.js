@@ -12,6 +12,7 @@ import EditarFuncionario from "./scenes/editar_funcionario";
 import ArquivoAej from "./scenes/arquivo_aej";
 import ArquivoAfd from "./scenes/arquivo_afd";
 import EspelhoPonto from "./scenes/espelho_ponto";
+import FolhaPagamento from "./scenes/folha_pagamento";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -28,6 +29,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Inicio />} />
               <Route path="/controle-ponto" element={<ControlePonto />} />
+              <Route path="/folha-pagamento" element={<FolhaPagamento />} />
               <Route path="/cadastro-funcionario" element={<CadastroFuncionario />} />
               <Route path="/dados-funcionarios" element={<DadosFuncionario />} />
               <Route path="/editar-funcionarios" element={<EditarFuncionario />} />

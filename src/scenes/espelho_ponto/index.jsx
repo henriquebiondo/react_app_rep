@@ -34,32 +34,26 @@ const EspelhoPonto = () => {
 
 
   const columns = [
-    { field: 'idEmpregado', headerName: 'ID do Empregado', width: 250 },
-    { field: 'numSeqRegistro', headerName: 'Número de Registro', width: 150 },
-    { field: 'empNome', headerName: 'Nome do Empregado', width: 400 },
-    { field: 'cpf', headerName: 'CPF', width: 150 },
-    { field: 'dataAdmissao', headerName: 'Data de Admissão', width: 150 },
-    { field: 'email', headerName: 'Email', width: 200 },
-    { field: 'departamento', headerName: 'Departamento', width: 200, hide: true },
-    { field: 'cargo', headerName: 'Cargo', width: 150 },
-    { field: 'banco', headerName: 'Banco', width: 150, hide: true },
-    { field: 'agencia', headerName: 'Agência', width: 150, hide: true },
-    { field: 'conta', headerName: 'Conta', width: 150, hide: true },
-    { field: 'telefone.telefone', headerName: 'Telefone', width: 150, hide: true },
-    { field: 'telefone.codOperadora', headerName: 'Código da Operadora', width: 200, hide: true },
-    { field: 'telefone.whatsapp', headerName: 'WhatsApp', width: 150, hide: true },
+    { field: 'numSeqRegistro', headerName: 'Numero registro', width: 200 },
+    { field: 'numSeqEsRegistro', headerName: 'Numero Entrada Saida Registro', width: 200 },
+    { field: 'dataMarcacaoPonto', headerName: 'Data Registro', width: 150 },
+    { field: 'horaMarcacaoPonto', headerName: 'Hora Registro', width: 150 },
+    { field: 'marcacaoOnline', headerName: 'Online', width: 150 },
+    { field: 'coletorRegistro', headerName: 'Coletor', width: 200 },
+    { field: 'tipoMarcacao', headerName: 'Tipo Marcacao', width: 150 },
+    { field: 'fonteMarcacao', headerName: 'Fonte Marcacao', width: 150, hide: true },
     {
-      headerName: 'Editar',
+      headerName: 'Ajustar',
       sortable: false,
       width: 100,
       disableClickEventBubbling: true,
       renderCell: (params) => {
         const onClick = () => {
           console.log(params.row);
-          //navigate('/editar-funcionarios', { state: { funcionario: params.row } });
+          //navigate('/editar-ponto', { state: { funcionario: params.row } });
         };
   
-        return <Button variant="contained" color="secondary" onClick={onClick}>Editar</Button>;
+        return <Button variant="contained" color="secondary" onClick={onClick}>Ajustar</Button>;
       }
     },
   ];
@@ -115,7 +109,7 @@ const EspelhoPonto = () => {
           <DataGrid
               rows={espelhoPonto}
               columns={columns}
-              //components={{Toolbar: GridToolbar}}
+              components={{Toolbar: GridToolbar}}
               getRowId={(row) => row.numSeqRegistro}
               localeText={{
                 toolbarDensity: 'Densidade',

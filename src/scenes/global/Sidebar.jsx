@@ -19,6 +19,9 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import DriveFileMoveIcon from '@mui/icons-material/DriveFileMove';
 import WarehouseIcon from '@mui/icons-material/Warehouse';
+import PaidIcon from '@mui/icons-material/Paid';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 
 import userImage from '../../assets/user.png';
 
@@ -146,10 +149,27 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+
+            <Item
+              title="Folha de Pagamento"
+              to="/folha-pagamento"
+              icon={<PaidIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            
             <Item
               title="Dados de Funcionários"
               to="/dados-funcionarios"
               icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Hora Contratual"
+              to="/dados-funcionarios"
+              icon={<AccessTimeIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -177,6 +197,15 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
+            <Item
+              title="Editar Empresa"
+              to="/cadastro-funcionario"
+              icon={<BusinessCenterIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            {/*
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -200,7 +229,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
+            */}
             {/* <Item
               title="Calendar"
               to="/calendar"
