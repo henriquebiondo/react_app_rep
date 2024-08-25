@@ -119,7 +119,7 @@ function Login({ onLogin }) {
             </Button>
             <Snackbar
               open={openSnackbar}
-              autoHideDuration={8000}
+              autoHideDuration={6000}
               onClose={handleCloseSnackbar}
               message={snackbarMessage}
               anchorOrigin={{ vertical: "top", horizontal: "center" }}
