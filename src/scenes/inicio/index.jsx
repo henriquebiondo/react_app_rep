@@ -16,7 +16,7 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
 
-const Dashboard = () => {
+const Inicio = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
   
@@ -284,4 +284,4 @@ const Dashboard = () => {
     );
   };
   
-  export default Dashboard;
+  export default Inicio;

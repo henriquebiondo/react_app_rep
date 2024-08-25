@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
@@ -8,11 +9,28 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
-const Topbar = () => {
+const Topbar = ({ onLogout }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    onLogout(); 
+    handleClose(); // Fechar o menu após deslogar
+  };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -43,9 +61,17 @@ const Topbar = () => {
         <IconButton>
           <SettingsOutlinedIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={handleClick}>
           <PersonOutlinedIcon />
         </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          >
+          <MenuItem onClick={handleLogout}>Deslogar</MenuItem>
+        </Menu>
       </Box>
     </Box>
   );

@@ -7,6 +7,7 @@ import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import PunchClockIcon from '@mui/icons-material/PunchClock';
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
@@ -16,6 +17,13 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import DriveFileMoveIcon from '@mui/icons-material/DriveFileMove';
+import WarehouseIcon from '@mui/icons-material/Warehouse';
+import PaidIcon from '@mui/icons-material/Paid';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+
+import userImage from '../../assets/user.png';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -80,7 +88,7 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                  REP-P
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -91,15 +99,17 @@ const Sidebar = () => {
 
           {!isCollapsed && (
             <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
+              {/* COMENTADO USER IMAGE */}
+               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={userImage}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
+
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -107,10 +117,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  Henrique
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Gerente de TI
                 </Typography>
               </Box>
             </Box>
@@ -118,7 +128,7 @@ const Sidebar = () => {
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
-              title="Dashboard"
+              title="Início"
               to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
@@ -130,45 +140,97 @@ const Sidebar = () => {
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              Data
+              Jornada
             </Typography>
             <Item
-              title="Manage Team"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
+              title="Controle de Ponto"
+              to="/controle-ponto"
+              icon={<PunchClockIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
-              title="Contacts Information"
-              to="/contacts"
+              title="Folha de Pagamento"
+              to="/folha-pagamento"
+              icon={<PaidIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            
+            <Item
+              title="Dados de Funcionários"
+              to="/dados-funcionarios"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
+              title="Hora Contratual"
+              to="/dados-funcionarios"
+              icon={<AccessTimeIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            {/*  <Item
               title="Invoices Balances"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
             <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
-              Pages
+              Cadastro
             </Typography>
+
             <Item
-              title="Profile Form"
-              to="/form"
+              title="Cadastro Funcionário"
+              to="/cadastro-funcionario"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
+              title="Editar Empresa"
+              to="/cadastro-funcionario"
+              icon={<BusinessCenterIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            {/*
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Arquivos
+            </Typography>
+            
+            <Item
+              title="Gerar AFD"
+              to="/arquivo-afd"
+              icon={<DriveFileMoveIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Gerar AEJ"
+              to="/arquivo-aej"
+              icon={<DriveFileMoveIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            */}
+            {/* <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
@@ -181,15 +243,17 @@ const Sidebar = () => {
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
 
-            <Typography
+            {/* CHARTS COMENTADO PARA NÃO APARECER NO MENU */}
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Charts
             </Typography>
+
             <Item
               title="Bar Chart"
               to="/bar"
@@ -197,6 +261,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            
             <Item
               title="Pie Chart"
               to="/pie"
@@ -217,7 +282,8 @@ const Sidebar = () => {
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
+            
           </Box>
         </Menu>
       </ProSidebar>
